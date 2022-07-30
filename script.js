@@ -44,19 +44,30 @@ digit.forEach(element => {
 
 function clearDisplay () {
     display.textContent=""
+    firstValue="";
+    secondValue="";
+    operand="";
 }
 clear.addEventListener("click",clearDisplay);
 
 let firstValue;
 let secondValue;
 let operand;
+firstValue="";
+secondValue="";
+operand="";
 
 function storeValue () {
-   
+   if (firstValue==0) {
     window.globalThis =firstValue=display.textContent;
     window.globalThis =operand=this.value;
     display.textContent="";
-    
+    } else {
+    getResult();
+    window.globalThis =firstValue=display.textContent;
+    window.globalThis =operand=this.value;
+    display.textContent="";
+    }
 }
 
 divBtn.addEventListener("click",storeValue);

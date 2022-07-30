@@ -1,6 +1,6 @@
 // operator functions to be used in calculator
 function add(input1,input2) {
-    return input1+input2
+    return (+input1)+(+input2)
 }
 function substract(input1,input2) {
     return input1-input2
@@ -24,4 +24,58 @@ function operate (num1,num2,oprAdd) {
         return divide(num1,num2)
     }
 }
+
+const digit = document.querySelectorAll(".digit");
+const display = document.querySelector(".display");
+const clear = document.querySelector(".ac");
+const divBtn = document.querySelector(".div")
+const multBtn = document.querySelector(".mult")
+const subtBtn = document.querySelector(".subt")
+const sumBtn = document.querySelector(".sum")
+const equalsBtn = document.querySelector(".equals")
+
+//populate the digits in display screen 
+function populateValue () {        
+    display.textContent=display.textContent+this.value; 
+}
+digit.forEach(element => {
+    element.addEventListener("click",populateValue)
+});
+
+function clearDisplay () {
+    display.textContent=""
+}
+clear.addEventListener("click",clearDisplay);
+
+let firstValue;
+let secondValue;
+let operand;
+
+function storeValue () {
+   
+    window.globalThis =firstValue=display.textContent;
+    window.globalThis =operand=this.value;
+    display.textContent="";
+    
+}
+
+divBtn.addEventListener("click",storeValue);
+multBtn.addEventListener("click",storeValue);
+subtBtn.addEventListener("click",storeValue);
+sumBtn.addEventListener("click",storeValue);
+
+function getResult () {
+    
+    window.globalThis = secondValue= display.textContent;
+    let result = operate(firstValue,secondValue,operand);
+    display.textContent=result;
+    
+}
+equalsBtn.addEventListener("click",getResult);
+
+
+
+
+
+
 

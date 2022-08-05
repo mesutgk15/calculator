@@ -35,6 +35,7 @@ const multBtn = document.querySelector(".mult")
 const subtBtn = document.querySelector(".subt")
 const sumBtn = document.querySelector(".sum")
 const equalsBtn = document.querySelector(".equals")
+const deleteBtn = document.querySelector(".del")
 
 //populate the digits in display screen 
 function populateValue () {        
@@ -99,7 +100,6 @@ subtBtn.addEventListener("click",storeValue);
 sumBtn.addEventListener("click",storeValue);
 
 function getResult () {
-    
     window.globalThis = secondValue= display.textContent;
     window.globalThis= result = operate(firstValue,secondValue,operand);
     display.textContent=result;
@@ -108,8 +108,11 @@ function getResult () {
 }
 equalsBtn.addEventListener("click",getResult);
 
+function del () {
+    display.textContent=display.textContent.slice(0,-1)
+}
 
-
+deleteBtn.addEventListener("click",del);
 
 
 
